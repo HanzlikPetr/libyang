@@ -1,7 +1,8 @@
 source [expr {[info exists ::env(TESTS_DIR)] ? "$env(TESTS_DIR)/interactive/ly.tcl" : "ly.tcl"}]
 namespace import uti::regex_xml_elements uti::regex_json_pairs
 
-set modules {ietf-inet-types ietf-yang-library}
+# checking for more modules is non-deterministic, the output is buffered and not always used as complete
+set modules {ietf-yang-library}
 
 test list_basic {basic test} {
 -setup $ly_setup -cleanup $ly_cleanup -body {
